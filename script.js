@@ -1,36 +1,94 @@
 const urlInput = document.getElementById('urlInput');
 const shortenBtn = document.getElementById('shortenBtn');
+const printUrlContainer = document.getElementById('printUrl');
+const copyButton = document.getElementById('copy-button');
 
 
-shortenBtn.addEventListener("click", () => {
-  const url = urlInput.value;
+// function copyToClipboard() {
+//   const shortenedInput = document.getElementById('shortenedInput');
+//   shortenedInput.select();
+//   document.execCommand('copy');
+//   alert('Copied to clipboard!');
+// }
 
-  shortenUrl(url);
-})
+shortenBtn.addEventListener('click', async () => {
+  const longUrl = urlInput.value;
+  const response = await fetch(`https://api.shrtco.de/v2/shorten?url=${longUrl}`);
+  const data = await response.json();
+  const shortUrl = data.result.full_short_link;
+  console.log(shortUrl);
 
-async function shortenUrl(url){
-  try{
-    const res = await fetch('https://api.shrtco.de/v2/shorten?url=${url}');
-    const data = res.json();
+  // const shortUrlLink = document.getElementById('short-url').querySelector('a');
+  const shortUrlItem = document.createElement('div');
 
-    const newUrl = document.createElement('div');
-    newUrl.innerHtml = `
-      <div>
-       button class="" id="copyBtn">Copy</button>
-      </div>
-    `
+  const longUrlText = document.createElement('p');
+  longUrlText.className = 'long-url-text';
 
-    result.prepend(newUrl);
-    const copyBtn = document.querySelector('#copyBtn');
-    copyBtn.addEventListener('click', () => {
-      navigator.clipboard.writeText(copyBtn.previousElementSibling.textContent)
-    })
-    input.value = "";
+  const section = document.createElement('section');
+  section.className = 'url-section';
 
-  }catch (error) {
-    console.log(error);
-  }
-}
+  const shortUrlLink = document.createElement('a');
+  shortUrlLink.href = shortUrl;
+  shortUrlLink.innerText = shortUrl;
+
+  const copyBtn = document.createElement('button');
+  copyBtn.id = 'copy-button';
+  copyBtn.className = 'copy-button';
+  copyBtn.innerText = 'Copy';
+
+  div.appendChild(longUrlText);
+  div.appendChild(section);
+  section.appendChild(shortUrlLink);
+  section.appendChild(copyBtn);
+
+  console.log(div);
+  
+  copyBtn.addEventListener('click', () => {
+    navigator.clipboard.writeText(shortUrl).then(() => {
+      alert('Copied to clipboard!');
+    });
+  });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// async function shortenUrl(url){
+//   try{
+//     const res = await fetch('https://api.shrtco.de/v2/shorten?url=${url}');
+//     const data = res.json();
+
+//     const newUrl = document.createElement('div');
+//     newUrl.innerHtml = `
+//       <div>
+//        button class="" id="copyBtn">Copy</button>
+//       </div>
+//     `
+
+//     result.prepend(newUrl);
+//     const copyBtn = document.querySelector('#copyBtn');
+//     copyBtn.addEventListener('click', () => {
+//       navigator.clipboard.writeText(copyBtn.previousElementSibling.textContent)
+//     })
+//     input.value = "";
+
+//   }catch (error) {
+//     console.log(error);
+//   }
+// }
 
 
 

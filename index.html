@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- <script src="dist/clipboard.min.js"></script> -->
   <title>Frontend Mentor | Shortly URL shortening app</title>
   <style>
     .attribution { font-size: 11px; text-align: center; }
@@ -27,7 +28,7 @@
 <body class="font-['Poppins'] text-[18px]">
   <main>
     <section class="">
-      `<nav class="flex justify-between items-center h-[70px] w-10/12 m-auto pb-12">
+      <nav class="flex justify-between items-center h-[70px] w-10/12 m-auto pb-12">
         <section class="flex items-center gap-[40px]">
           <img src="images/logo.svg" alt="Logo" class="">
           <ul class="flex gap-[15px] list-style-none">
@@ -52,13 +53,17 @@
         </div>
       </section>
     </section>
+
     <section class="bg-[#bfbfbf] pb-32 mt-[200px] relative ">
+
       <section class="w-10/12 m-auto rounded-lg p-[40px] flex gap-[20px] bg-[#3b3054] mb-12 mt-[-70px] absolute left-[8%] bg-[url('images/bg-shorten-desktop.svg')]">
-        <input type="text" placeholder="Shorten a link here..." class="px-8 py-2 rounded-lg outline-none border-none w-[86%]" id="urlInput">
+        <input type="url" placeholder="Shorten a link here..." class="px-8 py-2 rounded-lg outline-none border-none w-[86%]" id="urlInput">
         <button class="border-none bg-[#29cfcf] px-4 py-3 rounded text-white cursor-pointer text-[13px] font-[700] w-[14%] hover:bg-[#76ffff]" id="shortenBtn">Shorten It!</button>
       </section>
-      <div class="pt-[100px]" id="print">
+
+      <div class="pt-[100px]" id="printUrl">
       </div>
+
       <section class="w-10/12 m-auto pt-[80px] flex flex-col items-center">
         <h2 class="text-center text-[#232126] text-[30px]  font-[700] mb-3">Advanced Statistics</h2>
         <p class="text-[#9d99a6] text-center w-5/12 mb-16 text-[15px] leading-snug">Track how your links are performing across the web with our 
@@ -98,10 +103,12 @@
         </div>
       </section>
     </section>
+
     <section class="bg-[#3b3054] py-12 flex items-center flex-col justify-center gap-[10px] bg-[url('images/bg-boost-desktop.svg')]">
       <h2 class="text-center text-white text-[30px] font-[700]">Boost your links today</h2>
       <button class="border-none bg-[#29cfcf] px-8 py-3 rounded-3xl text-white cursor-pointer text-[13px] font-[700] hover:bg-[#76ffff]">Get Started</button>
     </section>
+
   </main>
   <footer class="bg-[#232126] py-12">
     <section class="w-10/12 m-auto grid grid-cols-3">
